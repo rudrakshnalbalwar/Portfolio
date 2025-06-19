@@ -2,18 +2,20 @@ import { Instagram, Linkedin, Mail, MapPin, Phone, Send, Twitter, X } from "luci
 import { FaXTwitter } from "react-icons/fa6";
 import { cn } from '@/lib/utils';
 import { useToast } from "../hooks/use-toast";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser"
 
 export const ContactSection = () => {
 
     const{ toast } = useToast();
     const[isSubmitting, setIsSubmitting] = useState(false);
+    const form = useRef();
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        setIsSubmitting(true);
 
-        emailjs.sendform(
+        emailjs.sendForm(
             "service_aok4nwm",
             "template_m5yzsv1",
             form.current,
@@ -35,7 +37,7 @@ export const ContactSection = () => {
                     variant: "destructive",
                 });
                 setIsSubmitting(false);
-            }, 1500);
+            });
 
 
     }
@@ -118,7 +120,7 @@ export const ContactSection = () => {
                         <h3 className="text-2xl font-semibold mb-6">
                             Send a message 
                         </h3>
-                        <form className="space-y-6" onSubmit={handleSubmit}>
+                        <form ref={form} className="space-y-6" onSubmit={handleSubmit}>
                             <div>
                                 <label htmlFor="name" className="block text-sm font-medium mb-2"> Your Name </label>
                                 <input type="text" id="name" name="name" required className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary" placeholder="eg: John Devis"/>
@@ -135,7 +137,7 @@ export const ContactSection = () => {
                             </div>
 
                             <button type="submit" disabled={isSubmitting} className={cn("cosmic-button w-full flex items-center justify-center gap-2")}>
-                                {isSubmitting ? "Sending..." :"Send Message"}
+                                {isSubmitting ? "Sending..." : "Send Message"}
                                 <Send size={16} />
 
                             </button>
