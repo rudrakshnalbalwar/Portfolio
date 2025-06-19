@@ -3,6 +3,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { cn } from '@/lib/utils';
 import { useToast } from "../hooks/use-toast";
 import { useState } from "react";
+import emailjs from "@emailjs/browser"
 
 export const ContactSection = () => {
 
@@ -12,15 +13,30 @@ export const ContactSection = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        setIsSubmitting(true);
+        emailjs.sendform(
+            "service_aok4nwm",
+            "template_m5yzsv1",
+            form.current,
+            "8qZ11-1rRV2tjXkVb"
+        )
+        .then(
+            (result) => {
+                toast({
+                    title: "Message Sent!",
+                    description: "Thank you for your message, I'll get back to you soon.",
+                });
+                setIsSubmitting(false);
+                form.current.reset();
+            },
+            (error) => {
+                toast({
+                    title: "Error",
+                    description: "Oops! Something went wrong. Please try again.",
+                    variant: "destructive",
+                });
+                setIsSubmitting(false);
+            }, 1500);
 
-        setTimeout(() => {
-            toast({
-                title: "Message sent!",
-                description:"Thank you for your message, I'll get back to you soon."
-        })
-            setIsSubmitting(false);
-        }, 1500)
 
     }
     return (
@@ -61,7 +77,7 @@ export const ContactSection = () => {
                                 <div>
                                     <h4 className="font-medium"> Phone No. </h4>
                                     <a
-                                        href="https://mail.google.com/mail/?view=cm&fs=1&to=nalbalwarrudraksh@gmail.com"
+                                        href="tel:+919529868979"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="text-muted-foreground hover:text-primary transition-colors"
