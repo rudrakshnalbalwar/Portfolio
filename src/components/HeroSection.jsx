@@ -8,6 +8,20 @@ export const HeroSection = () => {
         >
             <div className="container max-w-4xl mx-auto text-center z-18">
                 <div className="space-y-6">
+                    {/* Profile Photo */}
+                    <div className="flex justify-center opacity-0 animate-fade-in">
+                        <div className="relative group">
+                            <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-full blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                            <div className="relative">
+                                <img 
+                                    src="/Me_1.png" 
+                                    alt="Rudraksh Nalbalwar" 
+                                    className="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full shadow-lg"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    
                     <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
                         <span className="opacity-0 animate-fade-in"> Hi, I'm </span>
                         <span className="text-primary opacity-0 animate-fade-in-delay-1"> Rudraksh </span>
