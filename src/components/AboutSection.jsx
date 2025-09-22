@@ -13,6 +13,21 @@ export const AboutSection = () => {
                         <h3 className="text-2xl font-semibold">
                             Aspiring Web Developer and ML Enthusiast
                         </h3>
+                        
+                        {/* Profile Photo */}
+                        <div className="flex justify-center md:justify-start">
+                            <div className="relative group">
+                                <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                                <div className="relative">
+                                    <img 
+                                        src="/Me_1.png" 
+                                        alt="Rudraksh Nalbalwar" 
+                                        className="w-40 h-40 md:w-48 md:h-48 object-cover rounded-xl shadow-lg"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        
                         <p className="text-muted-foreground">
                             I'm Rudraksh Nalbalwar, a final-year B.Tech (AI/ML) student at Shri Ramdeobaba College of Engineering and Management, 
                             with a deep interest in building intelligent systems and scalable web apps. 
@@ -32,21 +47,23 @@ export const AboutSection = () => {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 gap-6">
-                        <div className="gradient-border p-6 card-hover">
-                            <div className="flex items-start gap-4">
-                                <div className="p-3 rounded-full bg-primary/10">
-                                  <Code className="h-6 w-6 text-primary" />
-                                </div>
-                                <div className="text-left">
-                                    <h4 className="font-semibold text-lg"> Software Development </h4>
-                                    <p className="text-muted-foreground">
-                                    Skilled in Python, Java, and JavaScript with hands-on experience in Flask, FastAPI, and React. 
-                                    Focused on building scalable and efficient web applications.
-                                    </p>
+                    <div className="space-y-6">
+                        {/* Feature Cards */}
+                        <div className="grid grid-cols-1 gap-6">
+                            <div className="gradient-border p-6 card-hover">
+                                <div className="flex items-start gap-4">
+                                    <div className="p-3 rounded-full bg-primary/10">
+                                      <Code className="h-6 w-6 text-primary" />
+                                    </div>
+                                    <div className="text-left">
+                                        <h4 className="font-semibold text-lg"> Software Development </h4>
+                                        <p className="text-muted-foreground">
+                                        Skilled in Python, Java, and JavaScript with hands-on experience in Flask, FastAPI, and React. 
+                                        Focused on building scalable and efficient web applications.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         <div className="gradient-border p-6 card-hover">
                            <div className="flex items-start gap-4">
                                 <div className="p-3 rounded-full bg-primary/10">
@@ -75,6 +92,7 @@ export const AboutSection = () => {
                                 </div>
                             </div>
 
+                        </div>
                         </div>
 
                     </div>
